@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_pos_unified_cart_tree" model="ir.ui.view">
+        <field name="name">pos.unified.cart.tree</field>
+        <field name="model">pos.unified.cart</field>
+        <field name="arch" type="xml">
+            <list string="السلال الموحدة">
+                <field name="name"/>
+                <field name="barcode"/>
+                <field name="state" widget="badge" decoration-success="state == 'active'" decoration-info="state == 'draft'"/>
+                <field name="store_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pos_unified_cart_form" model="ir.ui.view">
+        <field name="name">pos.unified.cart.form</field>
+        <field name="model">pos.unified.cart</field>
+        <field name="arch" type="xml">
+            <form string="السلة الموحدة">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="barcode"/>
+                        </group>
+                        <group>
+                            <field name="state"/>
+                            <field name="store_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="المنتجات">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pos_unified_cart" model="ir.actions.act_window">
+        <field name="name">السلال الموحدة</field>
+        <field name="res_model">pos.unified.cart</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_pos_unified_cart"
+              name="السلال الموحدة"
+              parent="point_of_sale.menu_point_of_sale"
+              action="action_pos_unified_cart"
+              sequence="50"/>
+</odoo>

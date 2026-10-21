@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="demo_unified_cart_1" model="pos.unified.cart">
+            <field name="name">سلة تجريبية - عميل VIP</field>
+            <field name="barcode">123456789</field>
+            <field name="state">active</field>
+        </record>
+    </data>
+</odoo>
